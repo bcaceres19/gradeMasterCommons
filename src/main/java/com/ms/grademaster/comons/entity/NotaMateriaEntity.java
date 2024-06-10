@@ -40,7 +40,17 @@ public class NotaMateriaEntity {
     @Column(name = "valor_nota", nullable = false, precision = 2, scale = 2)
     private BigDecimal valorNota;
 
+    @Column(name = "numero_corte", nullable = false)
+    private Long numeroCorte;
+
     public NotaMateriaEntity(BigDecimal valorNota) {
         this.valorNota = valorNota;
+    }
+
+    public NotaMateriaEntity(SemestreEntity codigoSemestreEntityFk, MateriaEntity codigoMateriaEntityFk, EstudianteEntity codigoEstudianteEntityFk, NotaEntity codigoNotaEntityFk) {
+        this.codigoSemestreEntityFk = codigoSemestreEntityFk;
+        this.codigoMateriaEntityFk = codigoMateriaEntityFk;
+        this.codigoEstudianteEntityFk = codigoEstudianteEntityFk;
+        this.codigoNotaEntityFk = codigoNotaEntityFk;
     }
 }

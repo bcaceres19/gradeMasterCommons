@@ -1,6 +1,7 @@
 package com.ms.grademaster.comons.utils.utilities;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ public class Utilidades {
                 case "Integer" -> Optional.of(clazz.cast(Integer.valueOf(obj.toString())));
                 case "Double" -> Optional.of(clazz.cast(Double.valueOf(obj.toString())));
                 case "LocalDate" -> Optional.of(clazz.cast(LocalDate.parse(obj.toString())));
+                case "LocalTime" -> Optional.of(clazz.cast(LocalTime.parse(obj.toString())));
                 default -> Optional.empty();
             };
         } catch (Exception e) {

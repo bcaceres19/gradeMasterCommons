@@ -16,6 +16,8 @@ public interface EstudianteMapper {
 
     EstudianteDto entityToDto(EstudianteEntity estudianteDto);
 
+    List<EstudianteDto> listEntityToListDto(List<EstudianteEntity> estudianteEntityList);
+
     default List<EstudianteDto> listObjectsToListDto(List<Object[]> dataObject){
         List<EstudianteDto> listaEstudiantes = new ArrayList<>();
         for(Object[] object : dataObject){

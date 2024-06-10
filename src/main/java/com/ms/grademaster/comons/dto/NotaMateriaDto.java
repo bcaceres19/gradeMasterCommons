@@ -7,7 +7,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class NotaMateriaDto {
+public class  NotaMateriaDto {
 
     private SemestreDto codigoSemestreEntityFk;
 
@@ -18,5 +18,7 @@ public class NotaMateriaDto {
     private NotaDto codigoNotaEntityFk;
 
     private BigDecimal valorNota;
+
+    private Long numeroCorte;
 
 }
