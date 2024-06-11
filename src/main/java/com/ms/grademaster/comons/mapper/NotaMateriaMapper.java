@@ -77,9 +77,8 @@ public interface NotaMateriaMapper {
             notaMateria.setCodigoEstudianteEntityFk(estudianteEntity);
             notaMateria.setCodigoSemestreEntityFk(semestre);
             notaMateria.setCodigoNotaEntityFk(notaEntity);
-            notaMateria.setValorNota(notaMateriaDto.getValorNota());
-            notaMateria.setNumeroCorte(notaMateriaDto.getNumeroCorte());
-            notaMateria.setValorNota(BigDecimal.valueOf(0.0));
+            notaMateria.setValorNota(notaMateriaDto.getValorNota() != null ? notaMateriaDto.getValorNota() : BigDecimal.valueOf(0.0));
+            notaMateria.setNumeroCorte(notaMateriaDto.getNumeroCorte() != null ? notaMateriaDto.getNumeroCorte() : 1);
             listNotasEntity.add(notaMateria);
         }
         return listNotasEntity;
