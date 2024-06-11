@@ -1,5 +1,6 @@
 package com.ms.grademaster.comons.utils.utilities;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -20,6 +21,7 @@ public class Utilidades {
                 case "Double" -> Optional.of(clazz.cast(Double.valueOf(obj.toString())));
                 case "LocalDate" -> Optional.of(clazz.cast(LocalDate.parse(obj.toString())));
                 case "LocalTime" -> Optional.of(clazz.cast(LocalTime.parse(obj.toString())));
+                case "BigDecimal" -> Optional.of(clazz.cast(BigDecimal.valueOf(Double.parseDouble(obj.toString()))));
                 default -> Optional.empty();
             };
         } catch (Exception e) {

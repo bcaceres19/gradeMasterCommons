@@ -21,6 +21,18 @@ public interface NotaMateriaMapper {
 
     List<NotaMateriaEntity> listDtoToListEntity(List<NotaMateriaDto> dtos);
 
+    default List<NotaMateriaDto> listObjectsToListDtoNota(List<Object[]> listObjects){
+        List<NotaMateriaDto> listNotasDto = new ArrayList<>();
+        for(Object[] objects : listObjects){
+            NotaMateriaDto notaMateriaDto = new NotaMateriaDto();
+            notaMateriaDto.setValorNota(checkType(objects[0], BigDecimal.class).orElse(null));
+            NotaDto notaDto = new NotaDto();
+            notaDto.setPorcentajeNota(checkType(objects[1], BigDecimal.class).orElse(null));
+            notaMateriaDto.setCodigoNotaEntityFk(notaDto);
+            listNotasDto.add(notaMateriaDto);
+        }
+        return listNotasDto;
+    }
 
     default List<NotaMateriaDto> listObjectsToListDto(List<Object[]> listObjects){
         List<NotaMateriaDto> listNotasDto = new ArrayList<>();
