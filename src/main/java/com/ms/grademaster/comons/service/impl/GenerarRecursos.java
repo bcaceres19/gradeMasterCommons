@@ -44,13 +44,15 @@ public class GenerarRecursos implements IGenerarRecursos {
         Random random = new Random();
         switch (tipoUsuario) {
             case ESTUDIANTE:
-                do {
+                    codigo.setLength(0);
                     EstudianteDto estudiante = (EstudianteDto) objeto;
                     codigo.append(inicialesConstante)
                             .append(LocalDate.now().getYear())
                             .append(estudiante.getCedulaEstudiante()
                                     .substring(estudiante.getCedulaEstudiante().length() - 3));
-                } while (estudianteRepository.existsByCodigoEstudiante(codigo.toString()));
+                if(estudianteRepository.existsByCodigoEstudiante(codigo.toString())){
+                    return "ERROR";
+                }
                 break;
             case DOCENTE:
                 DocenteDto docente = (DocenteDto) objeto;
@@ -83,6 +85,7 @@ public class GenerarRecursos implements IGenerarRecursos {
                 break;
             case NOTA:
                 do {
+                    codigo.setLength(0);
                     codigo.append(inicialesConstante)
                             .append(random.nextInt(9000000) + 1000000);
                 } while (notaRepository.existsByCodigoNota(codigo.toString()));
